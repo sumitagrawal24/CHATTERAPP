@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "619113010340",
+    "firebase_url": "https://chatterapp-d306a.firebaseio.com",
+    "project_id": "chatterapp-d306a",
+    "storage_bucket": "chatterapp-d306a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619113010340:android:890139b9c6e46a7d96c231",
+        "android_client_info": {
+          "package_name": "com.example.chatterapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619113010340-ecbjfvhrvdrjbmbh0p99t9ng8fn0ajpd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chatterapp",
+            "certificate_hash": "09fd766d6f7caddfbb562246ca4365b22e18271a"
+          }
+        },
+        {
+          "client_id": "619113010340-kd179q6vdltmvqvu3vt80frigmb2499v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnZS6H5wcj10nnhOrME3Q_BQKXPCzOETI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619113010340-kd179q6vdltmvqvu3vt80frigmb2499v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
