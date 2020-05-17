@@ -117,10 +117,11 @@ class ChatActivity : AppCompatActivity() {
         }
         fun updateItems()=messagesSection.update(messages)
 
-        if(shouldInitRecyclerView)
+        if(shouldInitRecyclerView) {
             init()
-        else
+        } else {
             updateItems()
+        }
 
         recycler_view_messages.scrollToPosition(recycler_view_messages.adapter!!.itemCount-1)
 
