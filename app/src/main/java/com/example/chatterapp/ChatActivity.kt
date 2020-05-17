@@ -117,9 +117,8 @@ class ChatActivity : AppCompatActivity() {
         }
         fun updateItems()=messagesSection.update(messages)
 
-        if(shouldInitRecyclerView) {
-            init()
-        } else {
+        if(shouldInitRecyclerView) init()
+        else {
             updateItems()
         }
 
