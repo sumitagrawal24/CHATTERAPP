@@ -5,24 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDEDED"
-    tools:context=".ChatActivity">
+    tools:context="com.sumit.chatterapp.ChatActivity">
 
+    <TextView
+        android:id="@+id/date_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rect_oval_white"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:text="Date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_messages"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout_message"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout_message"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/relativeLayout_message"
+        android:id="@+id/constraintLayout_message"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
@@ -35,10 +47,11 @@
             android:id="@+id/fab_send_image"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="4dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_image_black_24dp"
-            android:tint="?attr/colorPrimaryDark"
+            android:src="@drawable/ic_attach_file_black_24dp"
+            android:tint="@color/colorPrimary"
+            app:backgroundTint="#FFFFFF"
             app:fabSize="mini"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -47,13 +60,14 @@
             android:id="@+id/editText_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rect_oval_white"
             android:elevation="5dp"
             android:hint="Type a Message"
             android:padding="10dp"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView_send"
             app:layout_constraintStart_toEndOf="@+id/fab_send_image"
@@ -61,18 +75,61 @@
 
         <ImageView
             android:id="@+id/imageView_send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="31dp"
+            android:layout_height="35dp"
 
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="4dp"
+            android:background="#FFFFFF"
             android:elevation="2dp"
             android:src="@drawable/ic_send_black_24dp"
+            android:tint="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/fab_send_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/fab_send_image" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        android:background="#020202"
+        android:foregroundTint="#FFFFFF"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+        app:titleTextColor="#FFFFFF">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_profile_pic"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:foregroundTint="@color/colorAccent"
+            android:src="@drawable/ic_account_circle_black_24dp"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp"
+            app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            tools:text="Sumit Agrawal"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

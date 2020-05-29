@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.MyAccountFragment">
+    tools:context="com.sumit.chatterapp.fragment.MyAccountFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -12,6 +12,7 @@
         android:id="@+id/imageView_profile_picture"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:src="@drawable/ic_account_circle_black_24dp"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
@@ -21,7 +22,8 @@
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+        app:srcCompat="@drawable/ic_image_black_24dp"
+        />
 
     <EditText
         android:id="@+id/editText_name"
@@ -58,7 +60,10 @@
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#676767"
         android:text="Save"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -68,7 +73,10 @@
         android:id="@+id/btn_sign_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#676767"
         android:text="Signout"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,6 +102,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
