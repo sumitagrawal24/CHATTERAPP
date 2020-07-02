@@ -10,6 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
@@ -34,6 +36,9 @@ class MyAccountFragment : Fragment() {
     private val RC_SELECT_IMAGE = 2
     private lateinit var selectedImageBytes: ByteArray
     private var pictureJustChanged = false
+    private  val viewModel by lazy {
+        ViewModelProvider(requireActivity()).get(MyAccountViewModel::class.java)
+    }
 
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
@@ -81,6 +86,21 @@ class MyAccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        StorageUtil.pathToReference("jsj")
+        viewModel.userLiveData.observe(viewLifecycleOwner, Observer { user->
+            editText_name.setText(user.name)
+            editText_bio.setText(user.bio)
+            println("::>> ${user.profilePicturePath}")
+            if (user.profilePicturePath!=null) {
+                Glide.with(this)
+                    .load(StorageUtil.pathToReference(user.profilePicturePath))
+//                    .transition(withCrossFade(factory))
+                    .into(imageView_profile_picture)
+            }
+
+        })
+
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -103,21 +123,14 @@ class MyAccountFragment : Fragment() {
     }
     var factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build()
 
+
     override fun onStart() {
         super.onStart()
-        FirestoreUtil.getCurrentUser { user ->
-            if(this@MyAccountFragment.isVisible){
-                editText_name.setText(user.name)
-                editText_bio.setText(user.bio)
-
-                if(!pictureJustChanged && user.profilePicturePath !=null)
-                Glide.with(this)
-                    .load(StorageUtil.pathToReference(user.profilePicturePath))
-                    .transition(withCrossFade(factory))
-                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                    .into(imageView_profile_picture)
-            }
-        }
+//        FirestoreUtil.getCurrentUser { user ->
+//            if(this@MyAccountFragment.isVisible){
+//
+//            }
+//        }
     }
 }
 
