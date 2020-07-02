@@ -93,14 +93,17 @@ class ChatActivity : AppCompatActivity() {
 
 
             imageView_send.setOnClickListener {
-                val messageToSend =
-                    TextMessage(
-                        editText_message.text.toString(), Calendar.getInstance().time,
+                val text = editText_message.text.toString()
+                if (text.isNotBlank())
+                {
+                    val messageToSend = TextMessage(
+                        text, Calendar.getInstance().time,
                         FirebaseAuth.getInstance().currentUser!!.uid,
                         otherUserId, currentUser.name
                     )
-                editText_message.setText("")
-                FirestoreUtil.sendMessage(messageToSend, channelId)
+                    editText_message.setText("")
+                    FirestoreUtil.sendMessage(messageToSend, channelId)
+                }
             }
             val items = listOf(
                 BasicGridItem(R.drawable.ic_image_black_24dp, "Gallary")
